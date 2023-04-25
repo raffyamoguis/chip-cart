@@ -1,17 +1,23 @@
 import React from 'react';
 import { Box, Group, Stack, Text } from '@mantine/core';
+import { useMediaPredicate } from 'react-media-hook';
 
 const Footer = () => {
+  const bigPhones = useMediaPredicate('(max-width: 600px)');
+
+  function check() {
+    return bigPhones ? 'center' : 'start';
+  }
   return (
     <Box
       sx={(theme) => ({
         backgroundColor: theme.colors.gray[7],
-        paddingTop: 100,
-        paddingLeft: 100,
+        paddingTop: bigPhones ? 20 : 100,
+        paddingLeft: bigPhones ? 20 : 100,
         cursor: 'pointer',
       })}
     >
-      <Group spacing={100} align='start'>
+      <Group spacing={`${bigPhones ? 30 : 100}`} align='start'>
         <Stack spacing={1} sx={(theme) => ({ color: theme.colors.gray[0] })}>
           <Text fz='sm'>1-888-963-8944</Text>
           <Text fz='sm'>1-814-251-9966 (Text)</Text>

@@ -21,7 +21,7 @@ import Footer from '../components/Footer';
 const Home: NextPage = () => {
   const autoplay = useRef(Autoplay({ delay: 2000 }));
   return (
-    <Layout>
+    <Layout title='Chip Cart - Home'>
       <>
         <BackgroundImage src='https://images.unsplash.com/photo-1593640495253-23196b27a87f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80'>
           <Space h={300} />
