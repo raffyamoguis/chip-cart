@@ -29,10 +29,10 @@ const Home: NextPage = () => {
             Looking to build your own gaming PC?
           </Title>
           <Group position='center' mt='md'>
-            <Button variant='white' color='dark' size='md'>
+            <Button variant='white' color='dark' size='md' radius='xs'>
               PC BUILDS
             </Button>
-            <Button variant='white' color='dark' size='md'>
+            <Button variant='white' color='dark' size='md' radius='xs'>
               PC PARTS
             </Button>
           </Group>

@@ -9,6 +9,7 @@ import {
   Burger,
 } from '@mantine/core';
 import { IconShoppingCart } from '@tabler/icons-react';
+import { RiShoppingCartLine } from 'react-icons/ri';
 
 const Navbar = () => {
   const [opened, { toggle }] = useDisclosure(false);
@@ -24,8 +25,8 @@ const Navbar = () => {
             aria-label={label}
           />
           <Text fw={700}>Chip Cart</Text>
-          <ActionIcon>
-            <IconShoppingCart />
+          <ActionIcon size='lg' variant='transparent' color='dark'>
+            <RiShoppingCartLine size={25} />
           </ActionIcon>
         </Group>
       </MediaQuery>
