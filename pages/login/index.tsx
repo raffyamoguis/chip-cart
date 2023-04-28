@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
 import Link from 'next/link';
 import type { NextPage } from 'next';
 import {
   Text,
-  Title,
   BackgroundImage,
   Space,
   Card,
@@ -13,22 +11,21 @@ import {
   Button,
   Group,
   ActionIcon,
+  Image,
 } from '@mantine/core';
 import { FcGoogle } from 'react-icons/fc';
 import { BsFacebook } from 'react-icons/bs';
 import Layout from '../../components/Layout';
 import Footer from '../../components/Footer';
+import Logo from '../../public/chipcart-no-background.svg';
 
 const Home: NextPage = () => {
-  const [heading, setHeading] = useState<string>('Login');
   return (
     <Layout title='Login | ChipCart'>
       <>
         <BackgroundImage src='https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'>
           <Space h={200} />
-          <Title ta='center' color='white'>
-            {heading}
-          </Title>
+
           <Card
             padding='xl'
             sx={(theme) => ({
@@ -37,7 +34,7 @@ const Home: NextPage = () => {
               borderRadius: theme.radius.sm,
             })}
           >
-            <Title ta='center'>Logo Here</Title>
+            <Image src={Logo.src} maw={150} mx='auto' alt='Logo' />
             <TextInput
               mb='sm'
               label='Username'
