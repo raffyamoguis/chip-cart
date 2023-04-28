@@ -17,6 +17,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { BsFacebook } from 'react-icons/bs';
 import Layout from '../../components/Layout';
 import Footer from '../../components/Footer';
+import Loader from '../../util/Loader';
 import Logo from '../../public/chipcart-no-background.svg';
 
 const Home: NextPage = () => {
@@ -35,6 +36,7 @@ const Home: NextPage = () => {
             })}
           >
             <Image src={Logo.src} maw={150} mx='auto' alt='Logo' />
+            <Loader />
             <TextInput
               mb='sm'
               label='Username'

@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { useDisclosure } from '@mantine/hooks';
 import {
   Group,
@@ -7,9 +8,10 @@ import {
   ActionIcon,
   MediaQuery,
   Burger,
+  Image,
 } from '@mantine/core';
-import { IconShoppingCart } from '@tabler/icons-react';
 import { RiShoppingCartLine } from 'react-icons/ri';
+import Logo from '../public/chipcart-no-background.svg';
 
 const Navbar = () => {
   const [opened, { toggle }] = useDisclosure(false);
@@ -24,7 +26,9 @@ const Navbar = () => {
             onClick={toggle}
             aria-label={label}
           />
-          <Text fw={700}>Chip Cart</Text>
+          <Link href='/'>
+            <Text fw={700}>Chip Cart</Text>
+          </Link>
           <ActionIcon size='lg' variant='transparent' color='dark'>
             <RiShoppingCartLine size={25} />
           </ActionIcon>
@@ -32,9 +36,9 @@ const Navbar = () => {
       </MediaQuery>
       <MediaQuery smallerThan='sm' styles={{ display: 'none' }}>
         <Group sx={{ height: '100%' }} px={100} position='apart'>
-          <Text fw={700} fz='xl'>
-            E-commerce
-          </Text>
+          <Link href='/'>
+            <Image src={Logo.src} maw={100} height={60} alt='Logo' />
+          </Link>
           <Flex
             gap='md'
             justify='flex-start'
