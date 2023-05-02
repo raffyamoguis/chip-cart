@@ -3,7 +3,6 @@ import type { NextPage } from 'next';
 import Autoplay from 'embla-carousel-autoplay';
 import {
   BackgroundImage,
-  Center,
   Title,
   Group,
   Button,
