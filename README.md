@@ -31,4 +31,8 @@ The Chip Cart is licensed under the [MIT License](LICENSE). Feel free to use, mo
 
 ## Contact
 
-If you have any questions or feedback about the PC Parts Store, please email us at amoguisraffy1@gmail.com.
+If you have any questions or feedback about the PC Parts Store, please email me at amoguisraffy1@gmail.com.
+
+## Note
+
+This project is still in development.
