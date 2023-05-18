@@ -12,6 +12,12 @@ Some of the key features of the Chip Cart include:
 - User accounts that allow customers to save their favorite products and track their order history
 - Secure payment processing through Stripe
 
+## Working pages
+
+- [x] /login
+- [x] /register
+- [x] /product/[slug]
+
 ## Installation
 
 To install and run the PC Parts Store locally on your machine, follow these steps:
