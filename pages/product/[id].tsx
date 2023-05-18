@@ -1,5 +1,5 @@
 import React from 'react';
-import type { NextPage } from 'next';
+import type { GetStaticPaths, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import {
   Group,
@@ -13,12 +13,14 @@ import {
   Flex,
   Accordion,
   Rating,
+  Box,
 } from '@mantine/core';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import Layout from '../../components/Layout';
 import Footer from '../../components/Footer';
 import QuantityInput from '../../components/QuantityInput';
+import { getDummyData } from '../../util/data';
 
 const productImages = [
   {
@@ -35,7 +37,23 @@ const productImages = [
   },
 ];
 
-const Product: NextPage = () => {
+export async function getStaticPaths() {
+  return {
+    paths: [], //indicates that no page needs be created at build time
+    fallback: 'blocking', //indicates the type of fallback
+  };
+}
+
+export async function getStaticProps() {
+  const message = getDummyData();
+  return {
+    props: {
+      message,
+    },
+  };
+}
+
+const Product: NextPage<{ message: string }> = ({ message }) => {
   const router = useRouter();
   const { id } = router.query;
   return (
@@ -59,7 +77,7 @@ const Product: NextPage = () => {
               </SimpleGrid>
             </PhotoProvider>
             <Stack spacing={4}>
-              <Title>AMD Ryzen 9</Title>
+              <Title>AMD Ryzen 9 | {message}</Title>
               <Text fw={500}>$900 - $1200</Text>
 
               <Text>Select Variant:</Text>
@@ -96,24 +114,79 @@ const Product: NextPage = () => {
             <Accordion.Item value='details'>
               <Accordion.Control>Details</Accordion.Control>
               <Accordion.Panel>
-                Colors, fonts, shadows and many other parts are customizable to
-                fit your design needs
+                <Text>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  Velit delectus consequatur doloremque corrupti optio totam eos
+                  nulla hic ut, sequi odit voluptates voluptatibus blanditiis
+                  dicta quos deserunt voluptate reiciendis quam!
+                </Text>
+                <Text mt='xs'>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Consequuntur, dolorem repellat vero maiores fugit
+                  reprehenderit reiciendis amet laboriosam laudantium illum
+                  voluptatem officiis, sint recusandae. Ab nulla et odio
+                  reprehenderit exercitationem, aspernatur animi architecto
+                  nostrum? Vero eveniet ex at magni aut, corrupti, odit
+                  doloremque doloribus, accusantium quisquam saepe odio? Quia
+                  rerum sequi sapiente assumenda eius, odio hic error ipsum
+                  illum maxime?
+                </Text>
+                <Text mt='xs'>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Consequuntur, dolorem repellat vero maiores fugit
+                  reprehenderit reiciendis amet laboriosam laudantium illum
+                  voluptatem officiis, sint recusandae. Ab nulla et odio
+                  reprehenderit exercitationem, aspernatur animi architecto
+                  nostrum? Vero eveniet ex at magni aut, corrupti, odit
+                  doloremque doloribus, accusantium quisquam saepe odio? Quia
+                  rerum sequi sapiente assumenda eius, odio hic error ipsum
+                  illum maxime?
+                </Text>
+                <Text mt='xs'>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Provident tempore veritatis at qui nesciunt consequatur
+                  laboriosam, maiores quia unde vel rem blanditiis quaerat velit
+                  ex porro? Tempora excepturi autem ut deserunt aliquid sed, vel
+                  alias nulla unde error dignissimos sapiente quaerat quibusdam
+                  quo iure? Quibusdam maiores et tempore repellendus magnam
+                  atque ducimus eius corporis at. Beatae, repellendus ad! Iste
+                  temporibus veniam, voluptate modi debitis harum, error in
+                  quibusdam quasi, nulla consequuntur facere nesciunt aperiam
+                  magni labore a? Animi voluptatum fugiat illo vero cupiditate
+                  assumenda recusandae. Sunt similique tenetur cupiditate aut
+                  harum ea placeat exercitationem, illo adipisci vitae eius
+                  officiis? Veritatis.
+                </Text>
+                <Text mt='xs'>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  Velit delectus consequatur doloremque corrupti optio totam eos
+                  nulla hic ut, sequi odit voluptates voluptatibus blanditiis
+                  dicta quos deserunt voluptate reiciendis quam!
+                </Text>
               </Accordion.Panel>
             </Accordion.Item>
 
             <Accordion.Item value='review'>
               <Accordion.Control>Reviews</Accordion.Control>
               <Accordion.Panel>
-                Configure components appearance and behavior with vast amount of
-                settings or overwrite any part of component styles
-              </Accordion.Panel>
-            </Accordion.Item>
-
-            <Accordion.Item value='focus-ring'>
-              <Accordion.Control>No annoying focus ring</Accordion.Control>
-              <Accordion.Panel>
-                With new :focus-visible pseudo-class focus ring appears only
-                when user navigates with keyboard
+                <Box
+                  sx={(theme) => ({
+                    backgroundColor: theme.colors.yellow[0],
+                    textAlign: 'center',
+                    padding: theme.spacing.xl,
+                    cursor: 'pointer',
+                  })}
+                >
+                  <Stack spacing={5} align='center'>
+                    <Text fz={40}>
+                      4.5{' '}
+                      <Text component='span' fz='lg'>
+                        out of 5
+                      </Text>
+                    </Text>
+                    <Rating value={4.5} fractions={5} size='md' />
+                  </Stack>
+                </Box>
               </Accordion.Panel>
             </Accordion.Item>
           </Accordion>
