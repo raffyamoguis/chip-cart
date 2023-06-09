@@ -1,5 +1,5 @@
 import React from 'react';
-import type { GetStaticPaths, NextPage } from 'next';
+import type { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import {
   Group,
@@ -16,6 +16,7 @@ import {
   Box,
 } from '@mantine/core';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import { ParsedUrlQuery } from 'querystring';
 import 'react-photo-view/dist/react-photo-view.css';
 import Layout from '../../components/Layout';
 import Footer from '../../components/Footer';
@@ -37,6 +38,10 @@ const productImages = [
   },
 ];
 
+interface IParams extends ParsedUrlQuery {
+  slug: string;
+}
+
 export async function getStaticPaths() {
   return {
     paths: [], //indicates that no page needs be created at build time
@@ -44,7 +49,8 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({ params }) {
+  console.log(params.id);
   const message = getDummyData();
   return {
     props: {

@@ -8,7 +8,7 @@ import {
   ActionIcon,
   MediaQuery,
   Burger,
-  Image,
+  Image,Anchor
 } from '@mantine/core';
 import { RiShoppingCartLine } from 'react-icons/ri';
 import Logo from '../public/chipcart-no-background.svg';
@@ -26,9 +26,7 @@ const Navbar = () => {
             onClick={toggle}
             aria-label={label}
           />
-          <Link href='/'>
-            <Text fw={700}>Chip Cart</Text>
-          </Link>
+          <Anchor component={Link} href='/' underline={false} fw={700} color='dark'>ChipCart</Anchor>
           <ActionIcon size='lg' variant='transparent' color='dark'>
             <RiShoppingCartLine size={25} />
           </ActionIcon>
@@ -46,18 +44,18 @@ const Navbar = () => {
             direction='row'
             sx={{ cursor: 'default' }}
           >
-            <Text fw={500} fz='lg'>
+            <Anchor fw={500} fz='lg' color='black' underline={false}>
               Builds
-            </Text>
-            <Text fw={500} fz='lg'>
+            </Anchor>
+            <Anchor fw={500} fz='lg' color='black' underline={false}>
               Parts
-            </Text>
-            <Text fw={500} fz='lg'>
+            </Anchor>
+            <Anchor fw={500} fz='lg' color='black' underline={false}>
               ShoppingCart
-            </Text>
-            <Text fw={500} fz='lg'>
+            </Anchor>
+            <Anchor fw={500} fz='lg' color='black' underline={false}>
               Profile
-            </Text>
+            </Anchor>
           </Flex>
         </Group>
       </MediaQuery>
