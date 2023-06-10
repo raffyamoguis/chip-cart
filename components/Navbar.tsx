@@ -44,7 +44,7 @@ const Navbar = () => {
             direction='row'
             sx={{ cursor: 'default' }}
           >
-            <Anchor fw={500} fz='lg' color='black' underline={false}>
+            <Anchor component={Link} href='/builds' fw={500} fz='lg' color='black' underline={false}>
               Builds
             </Anchor>
             <Anchor fw={500} fz='lg' color='black' underline={false}>

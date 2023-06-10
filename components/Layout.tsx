@@ -6,7 +6,7 @@ import Info from './Info';
 
 interface Props {
   title?: string;
-  children?: JSX.Element;
+  children?: React.ReactNode;
 }
 
 const Layout: React.FC<Props> = ({ children, title }) => {

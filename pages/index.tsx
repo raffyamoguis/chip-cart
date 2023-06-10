@@ -16,17 +16,17 @@ import AppCard from '../components/card/AppCard';
 import Info from '../components/Info';
 import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
+import ImageBG from '../components/ImageBG';
 
 const Home: NextPage = () => {
   const autoplay = useRef(Autoplay({ delay: 2000 }));
   return (
     <Layout title='Chip Cart - Home'>
-      <>
-        <BackgroundImage src='https://images.unsplash.com/photo-1593640495253-23196b27a87f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80'>
-          <Space h={300} />
+        <ImageBG imgsource='https://images.unsplash.com/photo-1593640495253-23196b27a87f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80' 
+            space={300}>
           <Title ta='center' color='white'>
-            Looking to build your own gaming PC?
-          </Title>
+              Looking to build your own gaming PC?
+            </Title>
           <Group position='center' mt='md'>
             <Button variant='white' color='dark' size='md' radius='xs'>
               PC BUILDS
@@ -35,8 +35,7 @@ const Home: NextPage = () => {
               PC PARTS
             </Button>
           </Group>
-          <Space h={300} />
-        </BackgroundImage>
+        </ImageBG>
 
         <Info message='Or you want to build your own? We can help you build your dream pc.' />
 
@@ -79,16 +78,11 @@ const Home: NextPage = () => {
           </SimpleGrid>
         </Container>
 
-        <BackgroundImage
-          mt={100}
-          src='https://images.unsplash.com/photo-1621364525332-f9c381f3bfe8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80'
-        >
-          <Space h={150} />
+        <ImageBG mt={100} imgsource='https://images.unsplash.com/photo-1621364525332-f9c381f3bfe8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80' space={150}>
           <Title ta='center' color='white'>
             Level up your gaming experience.
           </Title>
-          <Space h={150} />
-        </BackgroundImage>
+        </ImageBG>
 
         <Container size='lg'>
           <Title ta='start' mt='xl' mb='md'>
@@ -153,7 +147,7 @@ const Home: NextPage = () => {
         />
 
         <Footer />
-      </>
+      
     </Layout>
   );
 };
