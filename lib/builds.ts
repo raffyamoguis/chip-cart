@@ -7,6 +7,7 @@ import build6 from '../public/builds/9ywl9coyfe5b1.webp';
 import build7 from '../public/builds/yp9ufsx1zf5b1.webp';
 import build8 from '../public/builds/ou974q8gve5b1.webp';
 import build9 from '../public/builds/8sd6z7tf175b1.webp';
+import build10 from '../public/builds/nfw7k54ub95b1.webp';
 
 
 const cardData = [
@@ -81,6 +82,14 @@ const cardData = [
       build9,
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, assumenda.",
     price: "₱20,000",
+  },
+  {
+    name: "GEFORCE 2080 4GB Build",
+    badge: "",
+    image:
+      build10,
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, assumenda.",
+    price: "₱22,000",
   }
 ];
 

@@ -8,11 +8,19 @@ import {
   Container,
   Select,
   Divider,
+  SimpleGrid,
 } from "@mantine/core";
+// Components
 import Layout from "../../components/Layout";
 import ImageBG from "../../components/ImageBG";
+import AppCard from "../../components/card/AppCard";
+import Info from "../../components/Info";
+// Lib
+import { getBuildData } from "../../lib/builds";
+import Footer from "../../components/Footer";
 
 const Home: NextPage = () => {
+  const buildData = getBuildData();
   return (
     <Layout title="Builds | ChipCart">
       <ImageBG
@@ -24,6 +32,8 @@ const Home: NextPage = () => {
         </Title>
       </ImageBG>
 
+      <Info message="Try our own PC Builds tailored on customer's budget and preferences." />
+
       <Container mt={100} size="xl">
         <Group position="apart">
           <Flex gap="md">
@@ -31,27 +41,43 @@ const Home: NextPage = () => {
               placeholder="Category"
               variant="unstyled"
               data={[
-                { value: "react", label: "React" },
-                { value: "ng", label: "Angular" },
-                { value: "svelte", label: "Svelte" },
-                { value: "vue", label: "Vue" },
+                { value: "react", label: "Budget Build" },
+                { value: "ng", label: "Mid-range Build" },
+                { value: "svelte", label: "Flagship Build" },
               ]}
             />
             <Select
               placeholder="Rating"
               variant="unstyled"
               data={[
-                { value: "react", label: "React" },
-                { value: "ng", label: "Angular" },
-                { value: "svelte", label: "Svelte" },
-                { value: "vue", label: "Vue" },
+                { value: "react", label: "Reviews" },
+                { value: "ng", label: "Recommendation" },
+                { value: "svelte", label: "Price" },
               ]}
             />
           </Flex>
           <Text>600+ PC Builds</Text>
         </Group>
+
         <Divider my="sm" />
+
+        <SimpleGrid cols={4} mb={100}>
+          {buildData.map((item, index) => (
+            <AppCard
+              key={index}
+              name={item.name}
+              badgeText={item.badge}
+              imagesource={item.image.src}
+              text={item.text}
+              price={item.price}
+              centeredPrice
+              withBorder={false}
+            />
+          ))}
+        </SimpleGrid>
       </Container>
+
+      <Footer />
     </Layout>
   );
 };
